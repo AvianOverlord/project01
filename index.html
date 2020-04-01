@@ -52,32 +52,34 @@
             var playerNum = options.indexOf(convertedChoice);
             if(playerNum === -1) //Checks for an invalid input via the null output indexOf()
             {
-                alert("That's not an option! You'll lose for sure!");
-            }
-
-            //The computer chooses
-            var compNum = Math.floor(Math.random()*3)
-            computerChoice = options[compNum];
-            console.log("compNum: " + compNum);
-
-            //We compare the two choices
-            var comparisonNumber = playerNum-compNum;
-            if(userChoice === computerChoice)
-            {
-                alert("It's a tie!");
-            }
-            else if(comparisonNumber === 1  || comparisonNumber === -2)
-            {
-                alert("You won this round!");
-                userScore++;
+                alert("That's not an option! Check your spelling next time.");
             }
             else
             {
-                alert("You lost this round!");
-                computerScore++;
+                //The computer chooses
+                var compNum = Math.floor(Math.random()*3)
+                computerChoice = options[compNum];
+                console.log("compNum: " + compNum);
+
+                //We compare the two choices
+                var comparisonNumber = playerNum-compNum;
+                if(userChoice === computerChoice)
+                {
+                    alert("It's a tie!");
+                }
+                else if(comparisonNumber === 1  || comparisonNumber === -2)
+                {
+                    alert("You won this round!");
+                    userScore++;
+                }
+                else
+                {
+                    alert("You lost this round!");
+                    computerScore++;
+                }
+                //Displays the two scores.
+                alert("You currently have " + userScore + " points out of 10, while the computer has " + computerScore + " points out of 10.");
             }
-            //Displays the two scores.
-            alert("You currently have " + userScore + " points out of 10, while the computer has " + computerScore + " points out of 10.");
         }
         //After the termination of the game loop, we check who won.
         if(userScore > 9)
