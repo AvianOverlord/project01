@@ -44,13 +44,16 @@
         var result;
         var options = ["rock", "paper", "scissors"];
 
-        while(userScore < 100 && computerScore < 100)
+        while(userScore < 10 && computerScore < 10)
         {
             //The player chooses their RPS
             userChoice = prompt("What is your choice between rock, paper, or scissors?");
             var convertedChoice = userChoice.toLowerCase();
             var playerNum = options.indexOf(convertedChoice);
-            console.log("playerNum: " + playerNum);
+            if(playerNum === -1)
+            {
+                alert("That's not an option! You'll lose for sure!");
+            }
 
             //The computer chooses
             var compNum = Math.floor(Math.random()*3)
@@ -73,6 +76,15 @@
                 alert("You lost this round!");
                 computerScore++;
             }
+            alert("You currently have " + userScore + " points out of 10, while the computer has " + computerScore + " points out of 10.");
+        }
+        if(userScore > 100)
+        {
+            alert("You've won the game!");
+        }
+        else
+        {
+            alert("You've lost the game. :(");
         }
     </script>
 
