@@ -1,0 +1,80 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+         /*
+        Declare variables: 
+           userScore  (start at 0)
+           computerScore (start at 0)
+           userChoice  ( rock, paper or scissors )
+           computerChoice ( rock, paper or scissors )
+           resultOfRound ( playerWins, compWins, tie )
+           options (make array of three choices [ rock, paper, scissors ])
+        -- start game loop
+        1. prompt user to choose rock, paper or scissors
+        2. computer generate random number between 0 and 2, which 
+           grabs a value from the array
+        3. using if statements, compare user choice with computer choice
+        4. if player wins:
+           alert that player wins
+           add to userScore (win is worth 10 points)
+          if computer wins:
+          alert that computer wins
+          add to computerScore
+          if it's a tie
+          alert that it's a tie
+          don't update any scores
+        5. if either player has max score (100) end the game; otherwise keep
+           playing
+      */
+
+        var userScore = 0;
+        var computerScore = 0;
+        var userChoice;
+        var computerChoice;
+        var result;
+        var options = ["rock", "paper", "scissors"];
+
+        while(userScore < 100 && computerScore < 100)
+        {
+            //The player chooses their RPS
+            userChoice = prompt("What is your choice between rock, paper, or scissors?");
+            var convertedChoice = userChoice.toLowerCase();
+            var playerNum = options.indexOf(convertedChoice);
+            console.log("playerNum: " + playerNum);
+
+            //The computer chooses
+            var compNum = Math.floor(Math.random()*3)
+            computerChoice = options[compNum];
+            console.log("compNum: " + compNum);
+
+            //We compare the two choices
+            var comparisonNumber = playerNum-compNum;
+            if(userChoice === computerChoice)
+            {
+                alert("It's a tie!");
+            }
+            else if(comparisonNumber === 1  || comparisonNumber === -2)
+            {
+                alert("You won this round!");
+                userScore++;
+            }
+            else
+            {
+                alert("You lost this round!");
+                computerScore++;
+            }
+        }
+    </script>
+
+</body>
+</html>
