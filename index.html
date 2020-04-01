@@ -50,7 +50,7 @@
             userChoice = prompt("What is your choice between rock, paper, or scissors?");
             var convertedChoice = userChoice.toLowerCase();
             var playerNum = options.indexOf(convertedChoice);
-            if(playerNum === -1)
+            if(playerNum === -1) //Checks for an invalid input via the null output indexOf()
             {
                 alert("That's not an option! You'll lose for sure!");
             }
@@ -76,8 +76,10 @@
                 alert("You lost this round!");
                 computerScore++;
             }
+            //Displays the two scores.
             alert("You currently have " + userScore + " points out of 10, while the computer has " + computerScore + " points out of 10.");
         }
+        //After the termination of the game loop, we check who won.
         if(userScore > 9)
         {
             alert("You've won the game!");
